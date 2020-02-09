@@ -12,6 +12,7 @@ class WelcomeScreen extends StatefulWidget {
 class _WelcomeScreenState extends State<WelcomeScreen>
     with SingleTickerProviderStateMixin {
   AnimationController controller;
+  Animation animation;
 
   @override
   void initState() {
@@ -19,7 +20,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
     super.initState();
     controller = new AnimationController(
         vsync: this, duration: Duration(seconds: 2), upperBound: 100);
-    animation = CurvedAnimation(parent: controller,curve: );
+    animation = CurvedAnimation(parent: controller, curve: Curves.bounceIn);
     controller.forward();
     controller.addListener(() {
       setState(() {});
