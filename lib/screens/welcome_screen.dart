@@ -18,13 +18,13 @@ class _WelcomeScreenState extends State<WelcomeScreen>
   void initState() {
     // TODO: implement initState
     super.initState();
-    controller = new AnimationController(
-        vsync: this, duration: Duration(seconds: 2), upperBound: 100);
+    controller =
+        new AnimationController(vsync: this, duration: Duration(seconds: 3));
     animation = CurvedAnimation(parent: controller, curve: Curves.bounceIn);
     controller.forward();
     controller.addListener(() {
       setState(() {});
-      print(controller.value);
+      print(animation.value);
     });
   }
 
@@ -44,11 +44,11 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                   tag: "logo",
                   child: Container(
                     child: Image.asset('images/logo.png'),
-                    height: controller.value,
+                    height: animation.value * 100,
                   ),
                 ),
                 Text(
-                  '${controller.value.toStringAsFixed(0)}',
+                  'Flash Chat',
                   style: TextStyle(
                     fontSize: 45.0,
                     fontWeight: FontWeight.w900,
