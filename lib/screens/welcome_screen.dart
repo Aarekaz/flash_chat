@@ -21,10 +21,11 @@ class _WelcomeScreenState extends State<WelcomeScreen>
     // TODO: implement initState
     super.initState();
     controller =
-        new AnimationController(vsync: this, duration: Duration(seconds: 3));
-    //animation = CurvedAnimation(parent: controller, curve: Curves.bounceIn);
+        new AnimationController(vsync: this, duration: Duration(seconds: 2));
+    //animation = CurvedAnimation(parent: controller, curve: Curves.easeInOut);
     animation = ColorTween(begin: Colors.blueGrey, end: Colors.white)
         .animate(controller);
+
     controller.forward();
 //    controller.addStatusListener((status) {
 //      if (status == AnimationStatus.completed) {
@@ -33,6 +34,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
 //        controller.forward();
 //      }
 //    });
+
     controller.addListener(() {
       setState(() {});
       print(animation.value);
@@ -62,7 +64,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                   tag: "logo",
                   child: Container(
                     child: Image.asset('images/logo.png'),
-                    height: 60,
+                    height: 60.0,
                   ),
                 ),
                 TypewriterAnimatedTextKit(
@@ -73,6 +75,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                   textStyle: TextStyle(
                     fontSize: 45.0,
                     fontWeight: FontWeight.w900,
+                    color: Colors.black,
                   ),
                 ),
               ],
@@ -81,19 +84,17 @@ class _WelcomeScreenState extends State<WelcomeScreen>
               height: 48.0,
             ),
             RoundButton(
-              buttonColor: Colors.lightBlueAccent,
-              buttonLabel: "Log In",
-              buttonFunction: () {
-                Navigator.pushNamed(context, LoginScreen.id);
-              },
-            ),
+                buttonColor: Colors.lightBlueAccent,
+                buttonLabel: "Log In",
+                buttonFunction: () {
+                  Navigator.pushNamed(context, LoginScreen.id);
+                }),
             RoundButton(
-              buttonColor: Colors.blue,
-              buttonLabel: "Register",
-              buttonFunction: () {
-                Navigator.pushNamed(context, RegistrationScreen.id);
-              },
-            ),
+                buttonColor: Colors.blueAccent,
+                buttonLabel: "Register",
+                buttonFunction: () {
+                  Navigator.pushNamed(context, RegistrationScreen.id);
+                }),
           ],
         ),
       ),

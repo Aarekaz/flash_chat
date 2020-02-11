@@ -1,4 +1,3 @@
-import 'package:flash_chat/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 
 class RoundButton extends StatelessWidget {
@@ -7,13 +6,14 @@ class RoundButton extends StatelessWidget {
   final Function buttonFunction;
 
   RoundButton({this.buttonColor, this.buttonLabel, this.buttonFunction});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 16.0),
       child: Material(
         elevation: 5.0,
-        color: Colors.lightBlueAccent,
+        color: buttonColor,
         borderRadius: BorderRadius.circular(30.0),
         child: MaterialButton(
           onPressed: buttonFunction,
@@ -21,6 +21,9 @@ class RoundButton extends StatelessWidget {
           height: 42.0,
           child: Text(
             buttonLabel,
+            style: TextStyle(
+              color: Colors.white,
+            ),
           ),
         ),
       ),
