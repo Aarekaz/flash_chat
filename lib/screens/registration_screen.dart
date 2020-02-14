@@ -41,7 +41,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               keyboardType: TextInputType.emailAddress,
               onChanged: (value) {
                 //Do something with the user input.
-                email = value;
+                email = value.toString();
               },
               decoration:
                   kInputDecoration.copyWith(hintText: "Enter your email"),
